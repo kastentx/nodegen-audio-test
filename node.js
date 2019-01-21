@@ -16,7 +16,7 @@ module.exports = function (RED) {
             var client = new lib.ModelAssetExchangeServer({ domain: this.service.host });
 
 
-            client.body = msg.payload;
+            parameters.body = msg.payload;
 
             var result;
             var errorFlag = false;
