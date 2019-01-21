@@ -37,26 +37,19 @@
 
                 $("#optional-parameters").hide();
                 $("#optional-parameters-label").hide();
-                if ($("#node-input-method").val() === 'get_metadata') {
-
-                }
                 if ($("#node-input-method").val() === 'predict') {
 
                 }
 
                 if ($("#optional-parameters").prop('checked')) {
-                    if ($("#node-input-method").val() === 'get_metadata') {
 
-                    }
                     if ($("#node-input-method").val() === 'predict') {
 
                         //$("#predict_image").show();
                         
                     }
                 } else {
-                    if ($("#node-input-method").val() === 'get_metadata') {
 
-                    }
                     if ($("#node-input-method").val() === 'predict') {
 
                         //$("#predict_image").show();
@@ -86,7 +79,6 @@
     <div class="form-row">
         <label for="node-input-method"><i class="icon-tasks"></i> <span data-i18n="ModelAssetExchangeServer.label.method"></span></label>
         <select id="node-input-method">
-            <option value="get_metadata" data-i18n="ModelAssetExchangeServer.parameters.get_metadata"></option>
             <option value="predict" data-i18n="ModelAssetExchangeServer.parameters.predict"></option>
         </select>
         &nbsp;
@@ -112,8 +104,6 @@
 
     <p>An API for serving models</p>
     <h2>Methods</h2>
-        <h3>get_metadata</h3>
-        <h4>Return the metadata associated with the model</h4>
         <h3>predict</h3>
         <h4>Make a prediction given input data</h4>
 </script>

@@ -20,11 +20,6 @@ module.exports = function (RED) {
 
             var result;
             var errorFlag = false;
-            if (node.method === 'get_metadata') {
-                var parameters = [], nodeParam, nodeParamType;
-
-                result = client.get_metadata(parameters);
-            }
 
             if (node.method === 'predict') {
                 var parameters = [], nodeParam, nodeParamType;
