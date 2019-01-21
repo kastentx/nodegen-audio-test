@@ -24,6 +24,8 @@
                 var firstMethod = methods.first();
                 $('#node-input-method').val(firstMethod.val());
             }
+            $("#req-method").hide()
+
 
             var showParameters = function () {
 
@@ -76,7 +78,7 @@
         <input type="text" id="node-input-service">
     </div>
 
-    <div class="form-row">
+    <div class="form-row" id="req-method">
         <label for="node-input-method"><i class="icon-tasks"></i> <span data-i18n="ModelAssetExchangeServer.label.method"></span></label>
         <select id="node-input-method">
             <option value="predict" data-i18n="ModelAssetExchangeServer.parameters.predict"></option>
