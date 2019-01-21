@@ -16,7 +16,7 @@ module.exports = function (RED) {
             var client = new lib.ModelAssetExchangeServer({ domain: this.service.host });
 
 
-            parameters.body = msg.payload;
+            client.body = msg.payload;
 
             var result;
             var errorFlag = false;
@@ -26,8 +26,18 @@ module.exports = function (RED) {
 
                 nodeParam = node.predict_image;
                 nodeParamType = node.predict_imageType;
-                parameters.image = nodeParamType === 'str' ? nodeParam || '' : RED.util.getMessageProperty(msg, nodeParam);
+
+                //parameters.image = nodeParamType === 'str' ? nodeParam || '' : RED.util.getMessageProperty(msg, nodeParam);
                 
+
+                if (typeof msg.payload === 'object') {
+                    parameters.body = msg.payload;
+                } else {
+                    node.error('Unsupported type: \'' + (typeof msg.payload) + '\', ' + 'msg.payload must be JSON object or buffer.', msg);
+                    errorFlag = true;
+                }
+
+
                 result = client.predict(parameters);
             }
 
