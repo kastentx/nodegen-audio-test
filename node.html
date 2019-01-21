@@ -4,7 +4,7 @@
         color: '#89bf04',
         defaults: {
             service: { value: "", type: "audio-classifier-service", required: true },
-            method: { value: "" },
+            method: { value: "predict", required: true },
 
             predict_image: { value: "" },
             predict_imageType: { value: "str" },
@@ -50,7 +50,7 @@
                     }
                     if ($("#node-input-method").val() === 'predict') {
 
-                        $("#predict_image").show();
+                        //$("#predict_image").show();
                         
                     }
                 } else {
@@ -59,7 +59,7 @@
                     }
                     if ($("#node-input-method").val() === 'predict') {
 
-                        $("#predict_image").show();
+                        //$("#predict_image").show();
                         
                     }
                 }

@@ -54,12 +54,13 @@ var ModelAssetExchangeServer = (function(){
         };
         if(Object.keys(form).length > 0) {
            req.formData = { 
-		audio: { 
-			value: form.body, 
-			options: { 
-				filename: 'audio.wav' 				         }                   
-		}
-	   };
+		        audio: { 
+                    value: form.body, 
+                    options: { 
+                        filename: 'audio.wav' 				         
+                    }                   
+                }
+	        };
         }
         if(typeof(body) === 'object' && !(body instanceof Buffer)) {
             req.json = true;
@@ -85,29 +86,6 @@ var ModelAssetExchangeServer = (function(){
     };
 
 
-/**
- * Return the metadata associated with the model
- * @method
- * @name ModelAssetExchangeServer#get_metadata
- * @param {object} parameters - method options and parameters
- */
- ModelAssetExchangeServer.prototype.get_metadata = function(parameters){
-    if(parameters === undefined) {
-        parameters = {};
-    }
-    var deferred = Q.defer();
-    var domain = this.domain,  path = '/model/metadata';
-    var body = {}, queryParameters = {}, headers = {}, form = {};
-
-        headers['Accept'] = ['application/json'];
-        headers['Content-Type'] = ['application/json'];
-
-    queryParameters = mergeQueryParams(parameters, queryParameters);
-
-    this.request('GET', domain + path, parameters, body, headers, queryParameters, form, deferred);
-
-    return deferred.promise;
- };
 /**
  * Make a prediction given input data
  * @method
